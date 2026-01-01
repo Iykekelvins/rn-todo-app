@@ -39,8 +39,6 @@ export default function Index() {
 
 	const isLoading = todos === undefined;
 
-	if (isLoading) return <LoadingSpinner />;
-
 	const handleToggleTodo = async (id: Id<'todos'>) => {
 		try {
 			await toggleTodo({ id });
@@ -189,6 +187,8 @@ export default function Index() {
 			</View>
 		);
 	};
+
+	if (isLoading) return <LoadingSpinner />;
 
 	return (
 		<LinearGradient colors={colors.gradients.background} style={styles.container}>
